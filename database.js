@@ -61,7 +61,7 @@ if (checagem.total === 0)    {
         '18:08')
     `);
        }else{
-    console.log('O banco pronto ${checagem.total} incidentes já foram cadastrads');
+    console.log(`O banco pronto ${checagem.total} incidentes já foram cadastrads`);
   }
 
 
@@ -74,7 +74,7 @@ if (checagem.total === 0)    {
   const chamadosRubia = await db.all(`SELECT * FROM incidents WHERE nome_cidadao = 'Rúbia Silva'`, );
 console.table(chamadosRubia);
 
-await db.run(`UPDATE incidents SET status_resolucao = "Em Análise" WHERE data = "16/03/2026"`);
+await db.run(`UPDATE incidents SET status_resolucao = "Em análise" WHERE tipo_do_problema = "Iluminação"`);
 console.log('Problema de iluminação resolvido!!"');
 
 
@@ -82,12 +82,14 @@ await db.run(`UPDATE incidents SET status_resolucao = "Resolvido" WHERE tipo_do_
 console.log('Problema de iluminação resolvido!!"');
 
 
-const relatorioAtualizado = await db.all('SLECT * FROM incidents');
+const relatorioAtualizado = await db.all('SELECT * FROM incidents');
 console.table(relatorioAtualizado);
+
+return db; 
 
 };
 
-criarBanco();
+module.exports =  { criarBanco }
 
 
 
