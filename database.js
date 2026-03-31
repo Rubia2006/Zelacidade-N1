@@ -18,7 +18,7 @@ const criarBanco = async () => {
             prioridade TEXT,
             nome_cidadao TEXT,
             data TEXT, 
-            hora TEXT,
+            hora STRING,
             status_resolucao TEXT DEFAULT 'Pendente')
           `);
 
@@ -61,7 +61,7 @@ if (checagem.total === 0)    {
         '18:08')
     `);
        }else{
-    console.log(`O banco pronto ${checagem.total} incidentes já foram cadastrads`);
+    console.log(`O banco pronto ${checagem.total} incidentes já foram cadastrads`)
   }
 
 
